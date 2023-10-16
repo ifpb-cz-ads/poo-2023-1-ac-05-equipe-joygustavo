@@ -11,10 +11,10 @@ public abstract class Conta implements Debitavel {
     protected double saldo;
     private LocalDate dataAbertura;
     private Cliente cliente;
-    private String variacao;
+    private int variacao;
 
     
-    public Conta(int agencia, int numero, double saldo, LocalDate dataAbertura, Cliente cliente, String variacao) {
+    public Conta(int agencia, int numero, double saldo, LocalDate dataAbertura, Cliente cliente, int variacao) {
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = saldo;
@@ -36,11 +36,11 @@ public abstract class Conta implements Debitavel {
     }
     
 
-    public String getVariacao() {
+    public int getVariacao() {
 		return variacao;
 	}
 
-	public void setVariacao(String variacao) {
+	public void setVariacao(int variacao) {
 		this.variacao = variacao;
 	}
 
