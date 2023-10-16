@@ -50,8 +50,8 @@ public class Main {
 			int numeroConta;
 			System.out.println("1--Depositar poupança--\n" + 
 					"2--Depositar Corrente--\n" + 
-					"3--Sacar poupança--\n" +
-					"4--Sacar Corrente--\n" +
+					"3--Sacar Corrente--\n" +
+					"4--Sacar Poupança--\n" +
 					"0--Sair--\n");
 			opcao = Integer.parseInt(scanner.nextLine());
 			switch (opcao) {
@@ -78,6 +78,42 @@ public class Main {
 						double valor = Double.parseDouble(scanner.nextLine());
 						contaCorrente.depositar(valor);
 						System.out.println("Valor depositado. Saldo da conta agora é:" +contaCorrente.getSaldo());
+					}else{
+						System.out.println("Conta não encontrada");
+					}
+				}
+				break;
+			case 3:
+				System.out.println("De qual conta deseja sacar?\n");
+				numeroConta = Integer.parseInt(scanner.nextLine());
+				for (ContaCorrente contaCorrente : contasCorrente) {
+					if(numeroConta == contaCorrente.getNumero()) {
+						System.out.println("Qual valor deseja sacar?\n");
+						double valor = Double.parseDouble(scanner.nextLine());
+						boolean sacado = contaCorrente.sacar(valor);
+						if(sacado) {
+							System.out.println("Valor sacado. Saldo da conta agora é:" +contaCorrente.getSaldo());							
+						} else {
+							System.out.println("Saldo insuficiente");
+						}
+					}else{
+						System.out.println("Conta não encontrada");
+					}
+				}
+				break;
+			case 4:
+				System.out.println("De qual conta deseja sacar?\n");
+				numeroConta = Integer.parseInt(scanner.nextLine());
+				for (ContaPoupanca contaPoupanca: contasPoupanca) {
+					if(numeroConta == contaPoupanca.getNumero()) {
+						System.out.println("Qual valor deseja sacar?\n");
+						double valor = Double.parseDouble(scanner.nextLine());
+						boolean sacado = contaPoupanca.sacar(valor);
+						if(sacado) {
+							System.out.println("Valor sacado. Saldo da conta agora é:" +contaPoupanca.getSaldo());							
+						} else {
+							System.out.println("Saldo insuficiente");
+						}
 					}else{
 						System.out.println("Conta não encontrada");
 					}
