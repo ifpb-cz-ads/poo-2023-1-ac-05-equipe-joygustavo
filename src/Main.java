@@ -41,6 +41,7 @@ public class Main {
 		
 		int opcao;
 		do {
+			int numeroConta;
 			System.out.println("1- \n --Depositar poupança--\n" + 
 					"2-\n--Depositar Corrente--\n" + 
 					"3-\n--Sacar poupança--\n" +
@@ -50,7 +51,7 @@ public class Main {
 			switch (opcao) {
 			case 1:
 				System.out.println("Em qual conta deseja depositar?\n");
-				int numeroConta = Integer.parseInt(scanner.nextLine());
+				numeroConta = Integer.parseInt(scanner.nextLine());
 				for (ContaPoupanca contaPoupanca : contasPoupanca) {
 					if(numeroConta == contaPoupanca.getNumero()) {
 						System.out.println("Qual valor deseja depositar?\n");
@@ -63,7 +64,18 @@ public class Main {
 				}
 				break;
 			case 2:
-				
+				System.out.println("Em qual conta deseja depositar?\n");
+				numeroConta = Integer.parseInt(scanner.nextLine());
+				for (ContaCorrente contaCorrente : contasCorrente) {
+					if(numeroConta == contaCorrente.getNumero()) {
+						System.out.println("Qual valor deseja depositar?\n");
+						double valor = Double.parseDouble(scanner.nextLine());
+						contaCorrente.depositar(valor);
+						System.out.println("Valor depositado. Saldo da conta agora é:" +contaPoupanca.getSaldo());
+					}else{
+						System.out.println("Conta não encontrada");
+					}
+				}
 				break;
 			case 0:
 				System.out.println("Saindo...");
