@@ -6,8 +6,8 @@ public class ContaPoupanca extends Conta{
 
     private double taxaJuros;
 
-    public ContaPoupanca(int agencia, int numero, double saldo, LocalDate dataAbertura, Cliente cliente, double taxaJuros) {
-        super(agencia, numero, saldo, dataAbertura, cliente);
+    public ContaPoupanca(int agencia, int numero, double saldo, LocalDate dataAbertura, Cliente cliente, double taxaJuros, String tipoConta) {
+        super(agencia, numero, saldo, dataAbertura, cliente, tipoConta);
         this.taxaJuros = taxaJuros;
     }
 
@@ -34,5 +34,4 @@ public class ContaPoupanca extends Conta{
         saldo += saldo*taxaJuros/100;
         return true;
     }
-
 }

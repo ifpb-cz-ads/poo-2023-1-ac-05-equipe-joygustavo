@@ -1,5 +1,7 @@
 package intefaces;
 
+import model.Conta;
+
 public interface Transferivel {
-    void tranferir();
+    boolean transferir(Conta conta, double valor);
 }

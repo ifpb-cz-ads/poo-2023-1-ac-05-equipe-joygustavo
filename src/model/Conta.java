@@ -2,20 +2,25 @@ package model;
 
 import java.time.LocalDate;
 
-public abstract class Conta {
+import intefaces.Debitavel;
+
+public abstract class Conta implements Debitavel {
 
     private int agencia;
     private int numero;
     protected double saldo;
     private LocalDate dataAbertura;
     private Cliente cliente;
+    private String tipoConta;
 
-    public Conta(int agencia, int numero, double saldo, LocalDate dataAbertura, Cliente cliente) {
+    
+    public Conta(int agencia, int numero, double saldo, LocalDate dataAbertura, Cliente cliente, String tipoConta) {
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = saldo;
         this.dataAbertura = dataAbertura;
         this.cliente = cliente;
+        this.tipoConta = tipoConta;
     }
 
     public boolean depositar(double valor){
@@ -25,23 +30,31 @@ public abstract class Conta {
     }
 
     public abstract boolean sacar(double valor);
-
+    
     public int getAgencia() {
         return agencia;
+    }
+    
+    public String getTipoConta() {
+        return tipoConta;
+    }
+
+    public void setTipoConta(String tipoConta) {
+        this.tipoConta = tipoConta;
     }
 
     public void setAgencia(int agencia) {
         this.agencia = agencia;
     }
-
+    
     public int getNumero() {
         return numero;
     }
-
+    
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
+    
     public double getSaldo() {
         return saldo;
     }
