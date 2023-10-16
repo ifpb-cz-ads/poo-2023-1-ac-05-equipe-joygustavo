@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-public class ContaCorrente extends Conta{
+public class ContaCorrente extends Conta implements transferivel{
 
     private double taxaManutencao;
 
