@@ -11,16 +11,16 @@ public abstract class Conta implements Debitavel {
     protected double saldo;
     private LocalDate dataAbertura;
     private Cliente cliente;
-    private String tipoConta;
+    private String variacao;
 
     
-    public Conta(int agencia, int numero, double saldo, LocalDate dataAbertura, Cliente cliente, String tipoConta) {
+    public Conta(int agencia, int numero, double saldo, LocalDate dataAbertura, Cliente cliente, String variacao) {
         this.agencia = agencia;
         this.numero = numero;
         this.saldo = saldo;
         this.dataAbertura = dataAbertura;
         this.cliente = cliente;
-        this.tipoConta = tipoConta;
+        this.variacao = variacao;
     }
 
     public boolean depositar(double valor){
@@ -35,15 +35,16 @@ public abstract class Conta implements Debitavel {
         return agencia;
     }
     
-    public String getTipoConta() {
-        return tipoConta;
-    }
 
-    public void setTipoConta(String tipoConta) {
-        this.tipoConta = tipoConta;
-    }
+    public String getVariacao() {
+		return variacao;
+	}
 
-    public void setAgencia(int agencia) {
+	public void setVariacao(String variacao) {
+		this.variacao = variacao;
+	}
+
+	public void setAgencia(int agencia) {
         this.agencia = agencia;
     }
     

@@ -28,13 +28,13 @@ public class Main {
 			if (opcaoConta == 1) {
 				Cliente cliente = new PessoaFisica(1000, new Endereco("Rua A", 30,
 						  "Cajazeiras"), "111.111.111-01", "João", LocalDate.of(1990,1,1));
-				ContaCorrente contaCorrente = new ContaCorrente(1,1, 0, LocalDate.now(),
+				ContaCorrente contaCorrente = new ContaCorrente(1,2, 0, LocalDate.now(),
 						 cliente, "corrente",20);
 				contasCorrente.add(contaCorrente);
 			} else if(opcaoConta == 2) {
 				Cliente cliente = new PessoaFisica(1000, new Endereco("Rua B", 20,
 						  "Cajazeiras"), "101.011.110-10", "Paulo", LocalDate.of(1999,2,3));
-				ContaPoupanca contaPoupanca = new ContaPoupanca(1, 2, 0, LocalDate.now(), cliente, 0.10, "poupança");
+				ContaPoupanca contaPoupanca = new ContaPoupanca(1, 1, 0, LocalDate.now(), cliente, 0.10, "poupança");
 				contasPoupanca.add(contaPoupanca); 
 			}
 		} while (opcaoConta != 0);
@@ -71,7 +71,7 @@ public class Main {
 						System.out.println("Qual valor deseja depositar?\n");
 						double valor = Double.parseDouble(scanner.nextLine());
 						contaCorrente.depositar(valor);
-						System.out.println("Valor depositado. Saldo da conta agora é:" +contaPoupanca.getSaldo());
+						System.out.println("Valor depositado. Saldo da conta agora é:" +contaCorrente.getSaldo());
 					}else{
 						System.out.println("Conta não encontrada");
 					}

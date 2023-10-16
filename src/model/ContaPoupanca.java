@@ -6,8 +6,8 @@ public class ContaPoupanca extends Conta{
 
     private double taxaJuros;
 
-    public ContaPoupanca(int agencia, int numero, double saldo, LocalDate dataAbertura, Cliente cliente, double taxaJuros, String tipoConta) {
-        super(agencia, numero, saldo, dataAbertura, cliente, tipoConta);
+    public ContaPoupanca(int agencia, int numero, double saldo, LocalDate dataAbertura, Cliente cliente, double taxaJuros, String variacao) {
+        super(agencia, numero, saldo, dataAbertura, cliente, variacao);
         this.taxaJuros = taxaJuros;
     }
 
