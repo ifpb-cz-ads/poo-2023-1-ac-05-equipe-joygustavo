@@ -58,8 +58,8 @@ public class Main {
                     "2--Depositar Corrente--\n" +
                     "3--Sacar Corrente--\n" +
                     "4--Sacar Poupança--\n" +
-                    "5 - Transferir poupança" +
-                    "6- Transferir Corrente" +
+                    "5--Transferir poupança--\n" +
+                    "6--Transferir Corrente--\n" +
                     "0--Sair--\n");
             opcao = Integer.parseInt(scanner.nextLine());
             switch (opcao) {
