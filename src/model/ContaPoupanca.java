@@ -2,7 +2,9 @@ package model;
 
 import java.time.LocalDate;
 
-public class ContaPoupanca extends Conta{
+import intefaces.Transferivel;
+
+public class ContaPoupanca extends Conta implements Transferivel{
 
     private double taxaJuros;
 
@@ -26,6 +28,16 @@ public class ContaPoupanca extends Conta{
             saldo -= valor;
             return true;
         }else{
+            return false;
+        }
+    }
+    
+    public boolean transferir(Conta destino, double valor) {
+        if (valor <= getSaldo()) {
+            this.sacar(valor);
+            destino.depositar(valor);
+            return true;
+        } else {
             return false;
         }
     }

@@ -35,7 +35,7 @@ public class Main {
                 // Pede o numero da conta (devo adicionar um auto-increment)
                 System.out.println("\n Qual será o número da conta?\n");
                 contaCorrente.setNumero(Integer.parseInt(scanner.nextLine()));
-              //adiciona no array list
+                //adiciona no array list
                 contasCorrente.add(contaCorrente);
             } else if (opcaoConta == 2) {
                 // Cria uma nova conta poupança e a adiciona à lista
@@ -58,6 +58,8 @@ public class Main {
                     "2--Depositar Corrente--\n" +
                     "3--Sacar Corrente--\n" +
                     "4--Sacar Poupança--\n" +
+                    "5 - Transferir poupança" +
+                    "6- Transferir Corrente" +
                     "0--Sair--\n");
             opcao = Integer.parseInt(scanner.nextLine());
             switch (opcao) {
@@ -123,6 +125,50 @@ public class Main {
                         } else {
                             System.out.println("Conta não encontrada");
                         }
+                    }
+                    break;
+                case 5:
+                    System.out.println("De qual conta deseja transferir?\n");
+                    numeroConta = Integer.parseInt(scanner.nextLine());
+                    for (ContaPoupanca contaPoupanca : contasPoupanca) {
+                        if (numeroConta == contaPoupanca.getNumero()) {
+                        	System.out.println("Para qual conta deseja transferir?");
+                        	int numeroContaCorrente = Integer.parseInt(scanner.nextLine());
+                        	for (ContaCorrente contaCorrente : contasCorrente) {
+								if(numeroContaCorrente == contaCorrente.getNumero()) {
+									System.out.println("Qual valor deseja transferir?\n");
+									double valor = Double.parseDouble(scanner.nextLine());
+									boolean transferido = contaPoupanca.transferir(contaCorrente, valor);
+									if (transferido) {
+										System.out.println("Valor transferido. Saldo da conta agora é:" + contaPoupanca.getSaldo());
+									} else {
+										System.out.println("Saldo insuficiente");
+									}	
+								}
+							}
+                        } 
+                    }
+                    break;
+                case 6:
+                    System.out.println("De qual conta deseja transferir?\n");
+                    numeroConta = Integer.parseInt(scanner.nextLine());
+                    for (ContaCorrente contaCorrente : contasCorrente) {
+                        if (numeroConta == contaCorrente.getNumero()) {
+                        	System.out.println("Para qual conta deseja transferir?");
+                        	int numeroContaPoupanca = Integer.parseInt(scanner.nextLine());
+                        	for (ContaPoupanca contaPoupanca: contasPoupanca) {
+								if(numeroContaPoupanca == contaPoupanca.getNumero()) {
+									System.out.println("Qual valor deseja transferir?\n");
+									double valor = Double.parseDouble(scanner.nextLine());
+									boolean transferido = contaCorrente.transferir(contaPoupanca, valor);
+									if (transferido) {
+										System.out.println("Valor transferido. Saldo da conta agora é:" + contaCorrente.getSaldo());
+									} else {
+										System.out.println("Saldo insuficiente");
+									}	
+								}
+							}
+                        } 
                     }
                     break;
                 case 0:

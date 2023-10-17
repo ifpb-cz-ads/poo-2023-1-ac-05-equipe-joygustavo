@@ -2,8 +2,10 @@ package model;
 
 import java.time.LocalDate;
 
+import intefaces.Transferivel;
 
-public class ContaCorrente extends Conta{
+
+public class ContaCorrente extends Conta implements Transferivel{
 
     private double taxaManutencao;
 
@@ -19,6 +21,16 @@ public class ContaCorrente extends Conta{
             saldo -= valor;
             return true;
         }else{
+            return false;
+        }
+    }
+    
+    public boolean transferir(Conta destino, double valor) {
+        if (valor <= getSaldo() + getCliente().getLimiteCredito()) {
+            this.sacar(valor);
+            destino.depositar(valor);
+            return true;
+        } else {
             return false;
         }
     }
